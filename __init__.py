@@ -1,7 +1,10 @@
 """Hermes Ultrawork plugin: explicit planning and safety-first routing."""
 from __future__ import annotations
 import json
-from .routing import RoutingFacts, route_task
+try:
+    from .routing import RoutingFacts, route_task
+except ImportError:  # Allows direct pytest collection from a plugin checkout.
+    from routing import RoutingFacts, route_task
 
 
 def _facts(params: dict) -> RoutingFacts:
