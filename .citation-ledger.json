@@ -1,4 +1,47 @@
 {
   "version": 1,
-  "sources": []
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins",
+      "title": "",
+      "accessed": "2026-08-29"
+    },
+    {
+      "id": 2,
+      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/plugins",
+      "title": "",
+      "accessed": "2026-08-29"
+    },
+    {
+      "id": 3,
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/profiles",
+      "title": "",
+      "accessed": "2026-08-29"
+    },
+    {
+      "id": 4,
+      "url": "https://github.com/NousResearch/hermes-agent/blob/main/CONTRIBUTING.md",
+      "title": "",
+      "accessed": "2026-08-29"
+    },
+    {
+      "id": 5,
+      "url": "https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/plugins.py",
+      "title": "",
+      "accessed": "2026-08-29"
+    },
+    {
+      "id": 6,
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban",
+      "title": "",
+      "accessed": "2026-08-29"
+    },
+    {
+      "id": 7,
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/pipe-script-output",
+      "title": "",
+      "accessed": "2026-08-29"
+    }
+  ]
 }

@@ -1,3 +1,45 @@
 name: hermes-ultrawork
-version: "0.1.0"
-description: Explicit, safety-first Ultrawork planning and Kanban routing for Hermes Agent.
+version: "0.2.0"
+manifest_version: 2
+api_version: 1
+kind: standalone
+description: Deterministic safety-first planning into existing Hermes Kanban profiles.
+author: Hermes Ultrawork Contributors
+license: MIT
+tags: [orchestration, kanban, routing, safety]
+provides_tools: [ultrawork]
+requires_plugins: []
+python_dependencies: []
+config_schema:
+  orchestrator_profiles:
+    type: list
+    default: [architect]
+    description: Profiles allowed to create Ultrawork plans.
+  role_bindings:
+    type: dict
+    required: true
+    description: Ordered existing profile ids per routing role.
+  profile_priority:
+    type: dict
+    default: {}
+    description: Optional integer priority per existing profile; lower wins.
+  normal_chat_enabled:
+    type: boolean
+    default: true
+    description: Enable automatic normal-chat routing context for ordinary user turns.
+  normal_chat_dispatch:
+    type: boolean
+    default: false
+    description: Enable hook-initiated Kanban task writes for explicit background intent.
+  normal_chat_dispatch_platforms:
+    type: array
+    default: []
+    description: Allowlist platforms where normal-chat dispatch is permitted.
+  tenant:
+    type: string
+    required: true
+    description: Explicit tenant for automatic root dispatch; no fallback is used.
+  workspace_kind:
+    type: string
+    required: true
+    description: Explicit scratch, dir, or worktree workspace kind for automatic root dispatch.
