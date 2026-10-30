@@ -36,7 +36,7 @@ class FakeContext:
     def register_skill(self, name, path):
         self.calls.append(("skill", name, Path(path)))
 
-    def register_hook(self, name, handler):
+    def register_hook(self, name, handler, /):
         self.calls.append(("hook", name, handler))
 
     def dispatch_tool(self, name, args):
@@ -76,6 +76,18 @@ class ManifestContractTests(unittest.TestCase):
         self.assertEqual(ctx.calls[1][1], "ultrawork")
         self.assertEqual(ctx.calls[2][1]["name"], "ultrawork")
         self.assertTrue(ctx.calls[3][2].is_file())
+
+    def test_register_hook_uses_public_positional_callback_contract(self):
+        spec = importlib.util.spec_from_file_location("ultrawork_plugin", ROOT / "__init__.py")
+        module = importlib.util.module_from_spec(spec)
+        assert spec and spec.loader
+        spec.loader.exec_module(module)
+        ctx = FakeContext()
+
+        module.register(ctx)
+
+        self.assertEqual(ctx.calls[-1][0:2], ("hook", "pre_llm_call"))
+        self.assertTrue(callable(ctx.calls[-1][2]))
 
 
 class PlanningContractTests(unittest.TestCase):

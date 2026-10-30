@@ -34,7 +34,4 @@ def register(ctx):
 
     # Register normal-chat pre_llm_call hook
     normal_chat_plugin = NormalChatPlugin(ctx)
-    ctx.register_hook(
-        "pre_llm_call",
-        handler=normal_chat_plugin.pre_llm_call,
-    )
+    ctx.register_hook("pre_llm_call", normal_chat_plugin.pre_llm_call)
